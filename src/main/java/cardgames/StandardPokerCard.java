@@ -1,3 +1,5 @@
+package cardgames;
+
 public class StandardPokerCard extends PokerCard {
     private PokerSuit suit;
     private PokerRank rank;

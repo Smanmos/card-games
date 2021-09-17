@@ -1,3 +1,5 @@
+package cardgames;
+
 public class Card{
     private String name;
     public Card(String name){

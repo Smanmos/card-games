@@ -1,3 +1,5 @@
+package cardgames;
+
 public enum PokerSuit{
     CLUBS("clubs"),
     DIAMONDS("diamonds"),

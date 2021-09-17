@@ -1,3 +1,5 @@
+package cardgames;
+
 public enum PokerRank{
     ACE("ace"),
     TWO("2"),
