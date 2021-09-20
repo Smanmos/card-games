@@ -1,0 +1,178 @@
+{
+    "Copper": {
+        "types": ["treasure"],
+        "cost": 0,
+        "on_play": [
+            ["add_coin", 1]
+        ],
+        "pile_size": 60
+    },
+
+    "Silver": {
+        "types": ["treasure"],
+        "cost": 3,
+        "on_play": [
+            ["add_coin", 2]
+        ],
+        "pile_size": 40
+    },
+
+    "Gold": {
+        "types": ["treasure"],
+        "cost": 6,
+        "on_play": [
+            ["add_coin", 3]
+        ],
+        "pile_size": 30
+    },
+
+    "Estate": {
+        "types": ["victory"], 
+        "cost": 2,
+        "vp": 1
+    },
+
+    "Duchy": {
+        "types": ["victory"], 
+        "cost": 5,
+        "vp": 3
+    },
+
+    "Province": {
+        "types": ["victory"], 
+        "cost": 8,
+        "vp": 6
+    },
+
+    "Curse": {
+        "types": ["curse"], 
+        "cost": 0,
+        "vp": -1
+    },
+
+    "Village": {
+        "types": ["action"],
+        "cost": 3,
+        "on_play": [
+            ["draw", 1],
+            ["add_action", 2]
+        ]
+    },
+    
+    "Laboratory": {
+        "types": ["action"],
+        "cost": 5,
+        "on_play": [
+            ["draw", 2],
+            ["add_action", 1]
+        ]
+    },
+
+    "Smithy": {
+        "types": ["action"],
+        "cost": 4,
+        "on_play": [
+            ["draw", 3]
+        ]
+    },
+
+    "Festival": {
+        "types": ["action"],
+        "cost": 5,
+        "on_play": [
+            ["add_action", 2],
+            ["add_buy", 1],
+            ["add_coin", 2]
+        ]
+    },
+
+    "Market": {
+        "types": ["action"],
+        "cost": 5,
+        "on_play": [
+            ["draw", 1],
+            ["add_action", 1],
+            ["add_buy", 1],
+            ["add_coin", 1]
+        ]
+    },
+
+    "Workshop": {
+        "types": ["action"],
+        "cost": 4,
+        "on_play": [
+            ["gain", {"max_cost": 4}]
+        ]
+    },
+
+    "Artisan": {
+        "types": ["action"],
+        "cost": 6,
+        "on_play": [
+            ["gain", {"max_cost": 5, "dest": "hand"}],
+            ["topdeck", 1]
+        ]
+    },
+
+    "Witch": {
+        "types": ["action", "attack"],
+        "cost": 5,
+        "on_play": [
+            ["draw", 2],
+            ["other_players", ["gain", {"card": "Curse"}]]
+        ]
+    },
+
+    "Militia": {
+        "types": ["action", "attack"],
+        "cost": 4,
+        "on_play": [
+            ["add_coin", 2],
+            ["other_players", ["discard", {"target": 3}]]
+        ]
+    },
+
+    "Moat": {
+        "types": ["action", "reaction"],
+        "cost": 2,
+        "on_play": [
+            ["draw", 2]
+        ],
+        "trigger": {
+            "player": "other_players",
+            "types": "attack"
+        },
+        "reaction": "moat"
+    },
+
+    "Bureaucrat": {
+        "types": ["action", "attack"],
+        "cost": 4,
+        "on_play": [
+            ["gain", {"card": "Silver", "location": "deck"}],
+            ["other_players", ["bureaucrat"]]
+        ]
+    },
+
+    "Moneylender": {
+        "types": ["action"],
+        "cost": 4,
+        "on_play": [
+            ["conditional", {
+                "first": ["optional", ["trash", {"card": "Copper", "num": 1}]],
+                "condition": "is_chosen",
+                "second": ["add_coin", 3]
+            }]
+        ]
+    },
+
+    "Council Room": {
+        "types": ["action"],
+        "cost": 5,
+        "on_play": [
+            ["draw", 4],
+            ["add_buy", 1],
+            ["other_players", ["draw", 1]]
+        ]
+    }
+}
