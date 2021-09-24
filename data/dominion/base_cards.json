@@ -1,0 +1,7 @@
+{
+  "Copper": {
+    "cost": 0,
+    "types": ["TREASURE"],
+    "on_play": ["add_coin", 1]
+  }
+}
