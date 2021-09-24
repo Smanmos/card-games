@@ -7,7 +7,12 @@ import cardgames.dominion.DominionTurn;
 public class InstructionAddCoin extends Instruction {
     private int numCoins;
     public InstructionAddCoin(int numCoins){
+        super(InstructionType.ADD_COIN);
         this.numCoins = numCoins;
+    }
+
+    public int getNumCoins(){
+        return numCoins;
     }
 
     @Override
