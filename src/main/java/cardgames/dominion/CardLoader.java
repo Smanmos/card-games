@@ -1,6 +1,5 @@
 package cardgames.dominion;
 
-import cardgames.Card;
 import cardgames.dominion.instruction.Instruction;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -10,15 +9,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class CardLoader {
-    public static List<DominionCard> load(String filePath){
+    public static Map<String,DominionCard> load(String filePath){
         File file = new File(filePath);
-        List<DominionCard> cards = new ArrayList<>();
+        Map<String,DominionCard> cards = new HashMap<>();
         try {
             InputStream inputStream = new FileInputStream(file);
             JSONTokener tokener = new JSONTokener(inputStream);
@@ -35,7 +31,7 @@ public class CardLoader {
                 JSONArray jsonInstruction = jsonCard.getJSONArray("on_play");
                 Instruction effect = Instruction.of(jsonInstruction);
                 DominionCard card = new DominionCard(cardName, types, cost, effect);
-                cards.add(card);
+                cards.put(cardName, card);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
