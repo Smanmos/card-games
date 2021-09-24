@@ -13,4 +13,18 @@ public class Hand<T extends Card> {
     public Hand(){
         this(new ArrayList<>());
     }
+
+    @Override
+    public boolean equals(Object other){
+        if (this == other){
+            return true;
+        }
+        else if (!(other instanceof Hand)){
+            return false;
+        }
+        else {
+            Hand otherHand = (Hand)other;
+            return cards.equals(otherHand.cards);
+        }
+    }
 }

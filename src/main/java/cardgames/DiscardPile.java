@@ -13,4 +13,18 @@ public class DiscardPile<T extends Card> {
     public DiscardPile(){
         this(new ArrayList<>());
     }
+
+    @Override
+    public boolean equals(Object other){
+        if (this == other){
+            return true;
+        }
+        else if (!(other instanceof DiscardPile)){
+            return false;
+        }
+        else {
+            DiscardPile otherDiscard = (DiscardPile)other;
+            return cards.equals(otherDiscard.cards);
+        }
+    }
 }
