@@ -17,4 +17,18 @@ public class PlayArea {
     public void clear(){
         cards.clear();
     }
+
+    @Override
+    public boolean equals(Object other){
+        if (this == other){
+            return true;
+        }
+        else if (!(other instanceof PlayArea)){
+            return false;
+        }
+        else {
+            PlayArea otherPlayArea = (PlayArea)other;
+            return cards.equals(otherPlayArea.cards);
+        }
+    }
 }
